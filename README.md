@@ -1,4 +1,8 @@
 Whimsical Wonders
+
+
+
+
 Welcome to Whimsical Wonders, a fun and quirky eCommerce website where you can find unique gifts and playful products. This project features product listings, a shopping cart, and a checkout process, all designed with colorful and whimsical elements.
 
 Features
