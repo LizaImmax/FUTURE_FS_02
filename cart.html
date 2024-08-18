@@ -28,5 +28,32 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!isUserLoggedIn()) {
+                window.location.href = 'login.html';
+            } else {
+                // Load cart items if logged in
+                loadCartItems();
+            }
+        });
+
+        function isUserLoggedIn() {
+            // Check if user is logged in; this can be done using session cookies or local storage
+            return localStorage.getItem('userLoggedIn') === 'true';
+        }
+
+        function loadCartItems() {
+            // Load cart items from local storage or other storage mechanism
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartContainer = document.getElementById('cart-items');
+            cartItems.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('cart-item');
+                itemDiv.innerHTML = `<p>${item.name} - $${item.price}</p>`;
+                cartContainer.appendChild(itemDiv);
+            });
+        }
+    </script>
 </body>
 </html>

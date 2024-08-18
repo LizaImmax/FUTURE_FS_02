@@ -20,12 +20,17 @@
     <section id="checkout">
         <h2>Checkout</h2>
         <form id="checkout-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" required>
-            <label for="address">Shipping Address:</label>
-            <textarea id="address" required></textarea>
+            <h3>Shipping Information</h3>
+            <input type="text" placeholder="Full Name" required>
+            <input type="text" placeholder="Address" required>
+            <input type="text" placeholder="City" required>
+            <input type="text" placeholder="State" required>
+            <input type="text" placeholder="ZIP Code" required>
+            <input type="text" placeholder="Country" required>
+            <h3>Payment Information</h3>
+            <input type="text" placeholder="Card Number" required>
+            <input type="text" placeholder="Expiration Date" required>
+            <input type="text" placeholder="CVV" required>
             <button type="submit">Place Order</button>
         </form>
     </section>
@@ -35,5 +40,16 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!isUserLoggedIn()) {
+                window.location.href = 'login.html';
+            }
+        });
+
+        function isUserLoggedIn() {
+            return localStorage.getItem('userLoggedIn') === 'true';
+        }
+    </script>
 </body>
 </html>
